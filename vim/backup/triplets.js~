@@ -1,0 +1,27 @@
+var nextTriplet = function () {
+    var a = 1;
+    return function () {
+        for (;; a++) {
+            for (var b = 1; b <= a; b++) {
+                var c = Math.sqrt(a*a + b*b);
+                if (Math.floor(c) === c) return [b,a++];
+            }
+        }
+    };
+})();
+
+var index = 0;
+var triplet = nextTriplet();
+
+return function (t, i) {
+    if (t > index) {
+        triplet = nextTriplet();
+        index ++;
+    }
+    var f = 400 * Math.pow(2, triplet[0] / triplet[1]);
+    return Math.sin(t * f * Math.PI)
+        * (t % 4)
+        * Math.pow(Math.sin(t * 8 * Math.PI), 2)
+    ;
+}
+

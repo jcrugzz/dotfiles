@@ -1,0 +1,18 @@
+{
+  "development": true,
+  "theme": "obviovs",
+  "name": "Abstract Thoughts",
+  "description": "",
+  "blogroll": [
+    {
+      "title": "Code",
+      "url": "https://github.com/jcrugzz",
+      "description": "My Github Account"
+    },
+    {
+      "title": "Twitter",
+      "url": "http://twitter.com/jcrugzz",
+      "description": "Follow @jcrugzz on Twitter"
+    }
+  ]
+}

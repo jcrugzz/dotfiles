@@ -1,0 +1,36 @@
+"use strict";
+
+var config = require('./config').twitter,
+  twitter = require('ntwitter');
+
+var twit = new twitter(config);
+
+var twitStream = twit.stream('status/sample', function (stream) {
+
+  stream.on('data', function (data) {
+
+    console.log(data);
+
+  });
+
+  stream.on('error', function(err) {
+
+    console.error(err);
+
+  });
+
+  stream.on('end', function (response) {
+
+    console.log(response);
+
+  });
+
+  stream.on('destroy', function (response) {
+
+    console.log(response);
+
+  });
+
+});
+
+twitStream.pipe(process.stdout);

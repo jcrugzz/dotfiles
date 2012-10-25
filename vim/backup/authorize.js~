@@ -1,0 +1,141 @@
+"use strict";
+
+var proxy = require('./proxy');
+
+/*
+ * Listeners that must be proxied if client is browser
+ */
+
+var proxyListeners = ['account'];
+
+
+/*
+ * Assess if data is valid(data, data.method are existent) and if communication is allowed
+ *
+ * Establish safe list for listeners that are valid
+ */
+var authorize = module.exports = exports = function (event, client, data, callback) {
+
+  /*
+   * Check if from browser. If proxy event and hooked in, call proxy
+   */
+  client.get('type', assessSituation);
+
+  function assessSituation(err, res) {
+
+    if(err) {
+
+      callback(err, null);
+
+    }
+
+    if(res === 'browser' && proxyListeners.indexOf(event) !== -1) {
+
+      //proxy.call(event);
+      var thing;
+
+    } else {
+
+      checkData(callSwitch());
+
+    }
+
+  }
+
+  /* Ensure data and data.method are present
+   *
+   */
+  function checkData (cb) {
+
+    if(data && data.method) {
+
+      cb(null, true);
+
+    } else {
+
+      var error = new Error('Incorrect or null arguments were sent');
+
+      cb(error, null);
+    }
+
+  }
+  /*
+   * Check what listener was called and route to correct function
+   *
+   * Facilitates the default behavior
+   */
+  function callSwitch (err, res) {
+
+    if(err) {
+
+      callback(err, null);
+
+    }
+
+    switch (event) {
+
+      case 'hook':
+
+        hook();
+        break;
+
+      case 'register':
+
+        register();
+        break;
+
+      case 'resume':
+
+        resume();
+        break;
+
+      case 'account':
+
+        account();
+        break;
+
+      default:
+
+        var error = new Error('Invalid event ' + event);
+
+        callback(error, null);
+    }
+
+  }
+
+  /*
+   * Can only be called if user is verified
+   */
+  function hook () {
+
+
+
+  }
+
+  /*
+   * Can be called by an unknown device
+   */
+  function register () {
+
+
+
+  }
+
+  /*
+   * Can be called by an unknown device
+   */
+  function resume () {
+
+
+  }
+
+  /*
+   * Can only be called if hooked in
+   */
+  function account() {
+
+
+
+  }
+
+};
