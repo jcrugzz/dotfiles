@@ -863,9 +863,9 @@ aug ft_javascript
     au!
     au FileType javascript
         \ setlocal
-            \ tabstop=2
-            \ softtabstop=2
-            \ shiftwidth=2
+            \ tabstop=4
+            \ softtabstop=4
+            \ shiftwidth=4
             \ textwidth=79
             \ colorcolumn=80
 aug end
