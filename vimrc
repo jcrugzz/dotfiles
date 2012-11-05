@@ -840,7 +840,7 @@ aug end
 aug ft_bash
     au!
     au BufNewFile,BufRead bash-fc-* setlocal filetype=sh
-    setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    setlocal tabstop=4 softtabstop=4 shiftwidth=4
 aug end
 
 " }}}
@@ -1034,7 +1034,7 @@ aug end
 aug ft_zsh
     au!
     au BufNewFile,BufRead zshecl*,prompt_*_setup setlocal filetype=zsh
-    setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    setlocal tabstop=4 softtabstop=4 shiftwidth=4
 aug end
 
 " }}}
