@@ -1,7 +1,0 @@
-
-var proxy = module.exports = exports = function () {
-
-	var self = this;
-
-
-};

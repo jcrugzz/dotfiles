@@ -1,9 +1,0 @@
-"use strict";
-
-var baudio = require('baudio'),
-  triplet = require('./triplets');
-
-
-var b = baudio(triplet);
-
-b.play();
