@@ -16,6 +16,7 @@ var path = require('path');
 var ignore = ['.git', 'README.md', 'linkFiles.js'];
 var toDelete = ['.zpreztorc', '.zshrc'];
 var count = 0;
+var count2 = 0;
 
 // Delete and then Link files
 deleteFiles(linkFiles);
@@ -41,19 +42,20 @@ function deleteFiles (callback) {
 
 // Links all my custom dotfiles to the user directory
 function linkFiles () {
-    count = 0;
+    count2 = 0;
     fs.readdir(path.resolve('.'), function (err, files) {
         if (err) {
             console.log(err);
             process.exit(1);
         }
+        console.log(files);
         stat(files);
     });
 
     function stat (files) {
         files.forEach(function (val, idx) {
             if(ignore.indexOf(val) === -1) {
-                fs.stat(path.resolve('.' + '/' + val ), function (err, stats) {
+                fs.stat(path.resolve(val), function (err, stats) {
                     if(err) {
                         console.log(err);
                         process.exit(1);
@@ -66,15 +68,7 @@ function linkFiles () {
 
                 });
             }
-            check();
         });
-
-        function check () {
-            ++count;
-            if(count === files.length) {
-                process.exit(1);
-            }
-        }
     }
 
     // Links dotfiles to user directory

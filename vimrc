@@ -283,7 +283,7 @@ set history=50
 set encoding=utf8
 
 " Share the clipboard.
-" set clipboard+=unnamed
+set clipboard+=unnamed
 
 " Fix backspace.
 set backspace=indent,eol,start
@@ -863,9 +863,9 @@ aug ft_javascript
     au!
     au FileType javascript
         \ setlocal
-            \ tabstop=4
-            \ softtabstop=4
-            \ shiftwidth=4
+            \ tabstop=2
+            \ softtabstop=2
+            \ shiftwidth=2
             \ textwidth=79
             \ colorcolumn=80
 aug end
@@ -1535,7 +1535,7 @@ inoremap <expr> <C-n> pumvisible() ?
 " }}}
 
 " }}}
-" Text Objects (Credit: Steve Losh) -------------------------------------- {{{
+" Text Objects (Credit: Stve Losh) -------------------------------------- {{{
 
 " Shortcut for [] -------------------------------------------------------- {{{
 

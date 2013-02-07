@@ -18,6 +18,7 @@
 	whitespace = trailing-space,space-before-tab
 	quotepath = false
 	editor = vim
+	autocrlf = input
 [apply]
 	whitespace = warn
 [repack]

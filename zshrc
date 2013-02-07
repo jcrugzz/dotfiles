@@ -23,5 +23,6 @@ bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
 export PATH=/usr/local/share/npm/bin:$PATH
+export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 
 eval "$(hub alias -s)"
